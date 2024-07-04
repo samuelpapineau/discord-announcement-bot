@@ -1,16 +1,29 @@
-import { Routes } from 'discord.js';
-import { rest, client, host, port } from "./src/config";
+import { rest, client, HOST, PORT, CHANNEL_ID } from './src/config';
+import { sendGetRequest } from './fetch/GET'
 
-const channelId = '677258989158924347';
+async function main() {
+  client.once('ready', async () => {
 
-client.once('ready', async () => {
+    console.log(`Bot is online at http://${HOST}:${PORT}`);
 
-  console.log(`Bot is online at ${host}:${port}`);
+    try {
+      const channel = await client.channels.fetch(CHANNEL_ID);
+      const json = await sendGetRequest();
 
-  const channel = await client.channels.fetch(channelId);
-  if (channel?.isTextBased()) {
-    channel.send('test');
-  } else {
-    console.error('Channel is not text-based or not found.');
-  }
-});
+      if (channel?.isTextBased()) {
+
+        for (let i = 0; i < json.data.length; i++) {
+          let message = json.data[i]
+          channel.send(message.content)
+        };
+
+      } else {
+        console.error('Channel is not text-based or not found.');
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  });
+}
+
+main()

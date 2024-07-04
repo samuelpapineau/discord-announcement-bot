@@ -6,8 +6,12 @@ require("dotenv").config();
 if (!process.env.DISCORD_TOKEN) throw new Error("process.env.DISCORD_TOKEN is required");
 if (!process.env.HOST) throw new Error("process.env.HOST is required");
 if (!process.env.PORT) throw new Error("process.env.PORT is required");
+if (!process.env.CHANNEL_ID) throw new Error("process.env.CHANNEL_ID is required");
 
 export const DISCORD_TOKEN = process.env.DISCORD_TOKEN
+export const HOST = process.env.HOST
+export const PORT = process.env.PORT
+export const CHANNEL_ID = process.env.CHANNEL_ID
 
 export const client = new Client({
     intents: [

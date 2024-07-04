@@ -1,16 +1,15 @@
 import json from '../example/example-data.json';
+import { HOST, PORT } from '../src/config'
 
 
 import * as http from 'http';
 
-// Function to send POST request
-async function sendPostRequest() {
-    const postData = JSON.stringify({json});
+export async function sendGetRequest() {
+    const postData = JSON.stringify({ json });
 
     const options = {
-        hostname: 'localhost',
-        port: 5000,
-        path: '/data',
+        hostname: HOST,
+        port: PORT,
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -37,7 +36,5 @@ async function sendPostRequest() {
     // Write data to request body
     req.write(postData);
     req.end();
+    return JSON.parse(postData).json
 }
-
-// Call the function to send the POST request
-sendPostRequest();
