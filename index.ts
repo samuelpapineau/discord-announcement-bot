@@ -8,13 +8,13 @@ async function main() {
 
     try {
       const channel = await client.channels.fetch(CHANNEL_ID);
-      const json = await sendGetRequest();
+      const json = JSON.parse(await sendGetRequest());
 
       if (channel?.isTextBased()) {
 
         for (let i = 0; i < json.data.length; i++) {
           let message = json.data[i]
-          channel.send(message.content)
+          channel.send(String(message.content))
         };
 
       } else {
