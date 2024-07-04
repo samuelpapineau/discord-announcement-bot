@@ -1,5 +1,5 @@
-[
+{"data":[
     {"type": "text", "content": "Hi"},
     {"type": "image", "content": "https://media.discordapp.net/attachments/717411625652715592/1168717137343418390/20231025_121050.jpg?ex=66869de7&is=66854c67&hm=4b9c8153e05f9e322510b3a41db5c802999b7834c81ed9c8eb50897870a11688&=&format=webp&width=687&height=386"},
     {"type": "video", "content": "https://cdn.discordapp.com/attachments/717411625652715592/1168716853347098654/20231023_135324.mp4?ex=66869da3&is=66854c23&hm=910480594831f46809c8887cb1e8fc538fd2ccfff50b4c73eee04abeaa94cb4d&"}
-]
+]}

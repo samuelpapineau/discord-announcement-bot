@@ -4,6 +4,8 @@ import 'isomorphic-fetch'
 require("dotenv").config();
 
 if (!process.env.DISCORD_TOKEN) throw new Error("process.env.DISCORD_TOKEN is required");
+if (!process.env.HOST) throw new Error("process.env.HOST is required");
+if (!process.env.PORT) throw new Error("process.env.PORT is required");
 
 export const DISCORD_TOKEN = process.env.DISCORD_TOKEN
 
